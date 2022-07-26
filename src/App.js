@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import About from "./components/About";
+import HomePage from "./components/HomePage";
 
 function App() {
+  const [showAddTask, setShowAddTask] = useState(false);
+  const onAdd = () => {
+    setShowAddTask(!showAddTask);
+    !showAddTask
+      ? document.getElementById("task-text").focus()
+      : document.getElementById("task-text").blur();
+  };
+  console.log(localStorage.size);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="container">
+        <Header onAdd={onAdd} showAddTask={showAddTask} />
+        <Routes>
+          <Route index element={<HomePage showAddTask={showAddTask} />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
