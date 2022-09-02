@@ -30,15 +30,16 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <style id="antiClickjack">
+    <!-- <style id="antiClickjack">
       body {
         display: none !important;
       }
-    </style>
+    </style> -->
     <script type="text/javascript">
       if (self === top) {
-        var antiClickjack = document.getElementById("antiClickjack");
-        antiClickjack.parentNode.removeChild(antiClickjack);
+        // var antiClickjack = document.getElementById("antiClickjack");
+        // antiClickjack.parentNode.removeChild(antiClickjack);
+        self.location = "https://assylniyet.netlify.app";
       } else {
         top.location = self.location;
       }
