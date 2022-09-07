@@ -28,9 +28,9 @@
       } else {
         // window.location = "https://assylniyet.netlify.app";
         console.log("IFRAME");
-        const iframe = document.querySelector("iframe");
-        const currentURL = iframe.contentWindow.location.href;
-        console.log(currentURL);
+        const parentURL = document.referrer;
+        const iframeURL = document.location.href;
+        console.log(parentURL, iframeURL);
         // top.location = self.location;
       }
     </script>
