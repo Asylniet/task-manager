@@ -28,8 +28,8 @@
       } else {
         // window.location = "https://assylniyet.netlify.app";
         console.log("IFRAME");
-        const iframe = document.getElementById("iframe");
-        const currentURL = iframe.contenWindow.location.href;
+        const iframe = document.querySelector("iframe");
+        const currentURL = iframe.contentWindow.location.href;
         console.log(currentURL);
         // top.location = self.location;
       }
